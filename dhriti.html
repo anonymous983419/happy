@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000080">
+<title>For Dhriti 💙</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💙%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+html{background:#000080;color-scheme:dark}
+body{min-height:100dvh;background:#000080;color:#fff;font:500 1.1rem/1.5 Quicksand,system-ui,sans-serif;overflow-x:hidden;-webkit-tap-highlight-color:transparent;animation:fade 1.2s ease both}
+@keyframes fade{from{opacity:0}}
+
+/* twinkling stars + heart layer */
+#sky,#fx{position:fixed;inset:0;pointer-events:none}
+#sky{z-index:0}
+#fx{z-index:9;overflow:hidden}
+.st{position:absolute;border-radius:50%;background:#fff;opacity:.5;animation:tw var(--d) ease-in-out var(--l) infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+.h{position:absolute;font-size:1.7rem;animation:pop 1.3s ease-out forwards}
+@keyframes pop{from{opacity:1;transform:translate(-50%,-50%) scale(.4)}to{opacity:0;transform:translate(calc(-50% + var(--x)),calc(-50% - var(--y))) rotate(var(--r)) scale(1.3)}}
+
+/* screens */
+.screen{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;text-align:center;padding:max(2rem,env(safe-area-inset-top)) 1.5rem max(2.5rem,env(safe-area-inset-bottom));opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.screen[hidden]{display:none}
+.screen.show{opacity:1;transform:none}
+.tag{color:#ff8fb1;font-weight:700;font-size:1.2rem}
+h1{font-size:clamp(1.9rem,8.5vw,3.2rem);line-height:1.15;font-weight:700;text-wrap:balance;max-width:30rem}
+.row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.taunt{min-height:1.6em;color:#cfd9ff}
+
+/* buttons */
+.btn{font:700 1.1rem Quicksand,system-ui,sans-serif;min-width:8.5rem;padding:.9rem 1.6rem;border-radius:999px;border:2px solid rgba(255,255,255,.6);background:transparent;color:#fff;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.95)}
+.btn:focus-visible{outline:3px solid #cfd9ff;outline-offset:4px}
+.yes{background:linear-gradient(135deg,#ffc2d1,#ff6f9c);border-color:transparent;color:#000080;animation:glow 2.2s ease-in-out infinite}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(255,143,177,.55)}50%{box-shadow:0 0 0 12px rgba(255,143,177,0)}}
+#no{position:relative;z-index:5}
+
+/* the letter */
+#s3{justify-content:flex-start;padding-top:max(3rem,env(safe-area-inset-top))}
+.msg{display:flex;flex-direction:column;gap:1.2rem;max-width:30rem;font:600 clamp(1.45rem,5.8vw,1.9rem)/1.35 Caveat,'Segoe Script',cursive}
+.l{opacity:0}
+.run .l{animation:in .9s ease forwards}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.beat{display:inline-block;font-size:3rem;animation:beat 4s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(.85)}50%{transform:scale(1.3)}}
+.sad{color:#ffb3c7;font-size:1.15em}
+.sig{color:#ff8fb1}
+
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="fx"></div>
+
+<main>
+  <!-- 1 -->
+  <section id="s1" class="screen show">
+    <p class="tag">for Dhriti 💙</p>
+    <h1>ARE YOU STILL SAD????</h1>
+    <div class="row">
+      <button class="btn yes" data-next="s2" data-note="aww, come here 🫂">Yes 😔</button>
+      <button class="btn" data-next="s2" data-note="good, let’s make it even better ✨">No 🙂</button>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2" class="screen" hidden>
+    <p id="note" class="tag"></p>
+    <h1>Do you want to see something that’ll make you happy? 🥺</h1>
+    <div class="row">
+      <button id="yes" class="btn yes" data-next="s3">Yes 💙</button>
+      <button id="no" class="btn">No</button>
+    </div>
+    <p id="taunt" class="taunt" aria-live="polite"></p>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3" class="screen" hidden>
+    <p class="tag">for you, Dhriti 💙</p>
+    <div class="msg">
+      <p class="l">I wish I could make everything feel a little lighter for you right now. I know some days get too loud, thoughts get too heavy, and even the smallest things can feel like a lot.</p>
+      <p class="l">But please remember this: you do not have to be okay every second. You don’t have to explain every feeling, find the perfect words, or pretend to smile just to make everyone else comfortable.</p>
+      <p class="l">You are allowed to pause.<br>You are allowed to cry.<br>You are allowed to have a difficult day and still be loved through every bit of it.</p>
+      <p class="l">Dhriti, I hope you speak to yourself with the same kindness you so easily deserve from others. Drink a little water, take a slow breath, rest if you need to.</p>
+      <div class="l"><span class="beat">💙</span></div>
+      <p class="l">Breathe in as the heart grows… and out as it shrinks. 🌙<br>One hard moment is not your whole story. This feeling will move, little by little, and you don’t have to rush it.</p>
+      <p class="l">Bad days are just clouds. They pass, and the sky behind them is still yours, full of stars. ✨</p>
+      <p class="l">And listen…<br><span class="sad">whenever you’re sad, even I become sad 😓</span><br>because you matter so much to me.</p>
+      <p class="l">I never want you to feel that you have to hide your sadness for my sake. You don’t owe me a happy version of yourself.</p>
+      <p class="l">I just want you to feel safe enough to be exactly as you are. If I could, I’d sit beside you quietly, hold your hand, and remind you that you’re not alone.</p>
+      <p class="l">Thank you for being you. The world is softer and brighter with you in it, and my life is better because you became a part of it.</p>
+      <p class="l">I hope something makes you smile today—even if it’s just this little page. 💙<br><span class="sig">— Siddh</span></p>
+      <div class="l"><button id="hug" class="btn yes">Take a hug 🤗</button></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $ = s => document.querySelector(s);
+const HEARTS = ['💙','💖','💕','🩷','✨','🤍'];
+
+// stars
+for (let i = 0; i < 40; i++) {
+  const s = document.createElement('i'), z = 1 + Math.random() * 2;
+  s.className = 'st';
+  s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--d:${2+Math.random()*3}s;--l:${Math.random()*3}s`;
+  $('#sky').append(s);
+}
+
+// hearts popping up
+function burst(x, y, n = 8) {
+  for (let i = 0; i < n; i++) {
+    const h = document.createElement('span');
+    h.className = 'h';
+    h.textContent = HEARTS[Math.random() * HEARTS.length | 0];
+    h.style.cssText = `left:${x}px;top:${y}px;--x:${(Math.random()-.5)*170}px;--y:${50+Math.random()*130}px;--r:${(Math.random()-.5)*60}deg`;
+    h.onanimationend = () => h.remove();
+    $('#fx').append(h);
+  }
+}
+
+// screen changes
+let busy = false;
+function go(id) {
+  if (busy) return;
+  busy = true;
+  const cur = $('.screen.show'), nxt = $('#' + id);
+  cur.classList.remove('show');
+  setTimeout(() => {
+    cur.hidden = true;
+    nxt.hidden = false;
+    nxt.offsetHeight; // reflow so the fade-in plays
+    nxt.classList.add('show');
+    scrollTo(0, 0);
+    busy = false;
+    if (id === 's3') reveal();
+  }, 400);
+}
+
+// the letter fades in line by line
+function reveal() {
+  const s = $('#s3');
+  s.classList.add('run');
+  const lines = s.querySelectorAll('.l'), timers = [];
+  let t = 0;
+  lines.forEach(el => {
+    el.style.animationDelay = t + 's';
+    timers.push(setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), t * 1000 + 500));
+    t += 0.6 + el.textContent.length / 80; // longer lines get more reading time
+  });
+  // if she scrolls on her own, show the whole letter straight away
+  const skip = () => { timers.forEach(clearTimeout); lines.forEach(el => el.style.animationDelay = '0s'); };
+  ['wheel', 'touchmove'].forEach(v => addEventListener(v, skip, { once: true, passive: true }));
+  setInterval(() => burst(Math.random() * innerWidth, innerHeight - 30, 1), 1400);
+}
+
+// every button gets hearts (the "No" is handled below)
+document.addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.id === 'no') return;
+  const r = b.getBoundingClientRect();
+  burst(e.clientX || r.left + r.width / 2, e.clientY || r.top + r.height / 2, b.id === 'hug' ? 28 : 8);
+  if (b.dataset.note) $('#note').textContent = b.dataset.note;
+  if (b.dataset.next) go(b.dataset.next);
+  if (b.id === 'hug') b.textContent = 'Hug received 💙';
+});
+
+// the "No" button runs away, so only "Yes" can be clicked
+const no = $('#no'), yes = $('#yes');
+const taunts = ['nice try 😝', 'hehe, nope', 'too slow 💨', 'only “yes” works 💙', 'you can’t catch me 🏃', 'please press yes 🥺'];
+let k = 0, last = 0;
+function dodge(e) {
+  e.preventDefault();
+  const t = performance.now();
+  if (t - last < 250) return;
+  last = t;
+  const c = no.getBoundingClientRect();
+  burst(c.left + c.width / 2, c.top + c.height / 2, 5);
+  no.style.transform = 'none';
+  const r = no.getBoundingClientRect(), y = yes.getBoundingClientRect();
+  let x, top, i = 0;
+  do {
+    x = 10 + Math.random() * (innerWidth - r.width - 20);
+    top = 10 + Math.random() * (innerHeight - r.height - 20);
+  } while (i++ < 30 && x < y.right + 12 && x + r.width > y.left - 12 && top < y.bottom + 12 && top + r.height > y.top - 12);
+  no.style.transform = `translate(${x - r.left}px,${top - r.top}px)`;
+  $('#taunt').textContent = taunts[k++ % taunts.length];
+}
+['pointerenter', 'pointerdown', 'touchstart', 'click', 'focus'].forEach(v => no.addEventListener(v, dodge, { passive: false }));
+</script>
+</body>
+</html>
